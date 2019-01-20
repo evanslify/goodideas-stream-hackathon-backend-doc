@@ -14,6 +14,7 @@
         - `data`
             - `profile` (BuyerInfo)
             - `active_stream_id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` (string, nullable) - 目前開的直播 ID，若無則 null
+            - `has_active_stream`: `false` (boolean) - 是否有直播
 
 # Group 買方資訊
 ## 買方資訊 [/profile]
@@ -256,9 +257,11 @@
 - `success`: `false` (boolean)
 
 ## BuyerInfo
-- `recipient_name`: `王大名`
-- `recipient_address`: `台南市東區仁和路八段9號`
-- `recipient_phone`: `0987878787`
+- `data_filled`: `true` (boolean)
+- `data`
+    - `recipient_name`: `王大名`
+    - `recipient_address`: `台南市東區仁和路八段9號`
+    - `recipient_phone`: `0987878787`
 
 ## Product
 - `title`: `商品1`
