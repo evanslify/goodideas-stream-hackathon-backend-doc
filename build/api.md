@@ -143,23 +143,23 @@
 - Response 400
     - Attributes (Failure)
 
-#### 修改產品 [PUT /stream/{stream-id}/product/{product-id}]
-
-只有賣場擁有人可以呼叫。
-
-- Parameters
-    - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
-    - `product-id`: `e0185907-9b22-4f6b-8593-cf0837f80b45` - 產品 ID
-
-- Request (application/json)
-    - Attributes (Product)
-
-- Response 200
-    - Attributes (Success)
-        - `data` (Product)
-                - `id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
-- Response 400
-    - Attributes (Failure)
+<!-- #### 修改產品 [PUT /stream/{stream&#45;id}/product/{product&#45;id}] -->
+<!--  -->
+<!-- 只有賣場擁有人可以呼叫。 -->
+<!--  -->
+<!-- &#45; Parameters -->
+<!--     &#45; `stream&#45;id`: `f0185907&#45;9b22&#45;4f6b&#45;8593&#45;cf0837f80b45` &#45; 直播 ID -->
+<!--     &#45; `product&#45;id`: `e0185907&#45;9b22&#45;4f6b&#45;8593&#45;cf0837f80b45` &#45; 產品 ID -->
+<!--  -->
+<!-- &#45; Request (application/json) -->
+<!--     &#45; Attributes (Product) -->
+<!--  -->
+<!-- &#45; Response 200 -->
+<!--     &#45; Attributes (Success) -->
+<!--         &#45; `data` (Product) -->
+<!--                 &#45; `id`: `a0185907&#45;9b22&#45;4f6b&#45;8593&#45;cf0837f80b45` &#45; 直播 ID -->
+<!-- &#45; Response 400 -->
+<!--     &#45; Attributes (Failure) -->
 
 #### 移除產品 [DELETE /stream/{stream-id}/product/{product-id}]
 
@@ -178,6 +178,7 @@
 
 - Parameters
     - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
+    - `product-id`: `e0185907-9b22-4f6b-8593-cf0837f80b45` - 商品 ID
 
 - Response 200 (application/json)
     - Attributes (Success)
@@ -234,7 +235,9 @@
 #### 取得訂單列表 [GET]
 
 若使用者擁有該賣場，返回所有訂單。
-若使用者不擁有該賣場，則返回自己的訂單。
+
+
+若使用者不擁有該賣場，則返回自己的訂單。**此時不會返回 `buyer`**
 
 預設以創建時間升冪排序。
 
@@ -303,4 +306,6 @@
 - `quantity`: `100` (number)
 - `buyer` (BuyerInfo)
 - `created_at`: `2018-01-01T00:00:00.000Z`
-
+- `product` (object)
+    - `id`: `7de7cdbb-14f0-408d-9d19-a202c0332405` (string)
+    - `title`: `商品1`
