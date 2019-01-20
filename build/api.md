@@ -116,11 +116,25 @@
 
 只有賣場擁有人可以呼叫。
 
+
+**注意：此端點為 `multipart/form-data`**
+
 - Parameters
     - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
 
-- Request (application/json)
-    - Attributes (ProductCreate)
+- Request (multipart/form-data;boundary=----WebKitFormBoundary8M3sSU13ul5lXSJm)
+    - Body
+        ------WebKitFormBoundary8M3sSU13ul5lXSJm
+        Content-Disposition: form-data; name="data"
+
+        { "title": "商品1", "price": 100, "created_at": "2018-01-01T00:00:00.000Z", "image_url": "https://fakeimg.pl/200x200" }
+        ------WebKitFormBoundary8M3sSU13ul5lXSJm
+
+        Content-Disposition: form-data; name="image"; filename="filename.jpg"
+        Content-Type: image/jpeg
+
+        data
+        ------WebKitFormBoundary8M3sSU13ul5lXSJm--
 
 - Response 200
     - Attributes (Success)
