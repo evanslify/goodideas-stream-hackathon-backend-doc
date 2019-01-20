@@ -91,7 +91,7 @@
                 - `price`: `100` (number)
                 - `created_at`: `2018-01-01T00:00:00.000Z`
                 - `image_url`: `https://fakeimg.pl/200x200`
-                - `id`: `1` (number) - 項次
+                - `id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` (string)
 
 - Response 404
     - Attributes (Failure)
@@ -127,7 +127,7 @@
         ------WebKitFormBoundary8M3sSU13ul5lXSJm
         Content-Disposition: form-data; name="data"
 
-        { "title": "商品1", "price": 100, "created_at": "2018-01-01T00:00:00.000Z", "image_url": "https://fakeimg.pl/200x200" }
+        { "title": "商品1", "price": 100, "created_at": "2018-01-01T00:00:00.000Z" }
         ------WebKitFormBoundary8M3sSU13ul5lXSJm
 
         Content-Disposition: form-data; name="image"; filename="filename.jpg"
@@ -139,7 +139,7 @@
 - Response 200
     - Attributes (Success)
         - `data` (Product)
-            - `id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
+
 - Response 400
     - Attributes (Failure)
 
@@ -149,7 +149,7 @@
 
 - Parameters
     - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
-    - `product-id`: `1` - 產品項次
+    - `product-id`: `e0185907-9b22-4f6b-8593-cf0837f80b45` - 產品 ID
 
 - Request (application/json)
     - Attributes (Product)
@@ -167,7 +167,7 @@
 
 - Parameters
     - `stream-id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
-    - `product-id`: `1` - 產品項次
+    - `product-id`: `e0185907-9b22-4f6b-8593-cf0837f80b45` - 產品 ID
 
 - Response 200
     - Attributes (Success)
@@ -184,9 +184,11 @@
         - `data` (array, fixed)
             - (object)
                 - `id`: `ccfcbb7c-63d0-4d0f-9020-c19e307e97dc`
-                - `recipient_name`: `王大名`
-                - `recipient_address`: `台南市東區仁和路八段9號`
-                - `recipient_phone`: `0987878787`
+                - `data_filled`: `true` (boolean)
+                - `data`
+                    - `recipient_name`: `王大名`
+                    - `recipient_address`: `台南市東區仁和路八段9號`
+                    - `recipient_phone`: `0987878787`
 
 ### 取得賣場所有買家資訊 [GET /stream/{stream-id}/order/summary]
 
@@ -198,9 +200,11 @@
         - `data` (array, fixed)
             - (object)
                 - `id`: `ccfcbb7c-63d0-4d0f-9020-c19e307e97dc`
-                - `recipient_name`: `王大名`
-                - `recipient_address`: `台南市東區仁和路八段9號`
-                - `recipient_phone`: `0987878787`
+                - `data_filled`: `true` (boolean)
+                - `data`
+                    - `recipient_name`: `王大名`
+                    - `recipient_address`: `台南市東區仁和路八段9號`
+                    - `recipient_phone`: `0987878787`
 
 ### 取得賣場某買家所有購買 [GET /stream/{stream-id}/order/by-user/{user-id}/summary]
 
@@ -212,9 +216,11 @@
     - Attributes (Success)
         - `data`
             - `id`: `ccfcbb7c-63d0-4d0f-9020-c19e307e97dc`
-            - `recipient_name`: `王大名`
-            - `recipient_address`: `台南市東區仁和路八段9號`
-            - `recipient_phone`: `0987878787`
+            - `data_filled`: `true` (boolean)
+            - `data`
+                - `recipient_name`: `王大名`
+                - `recipient_address`: `台南市東區仁和路八段9號`
+                - `recipient_phone`: `0987878787`
             - `item` (array, fixed)
                 - (object)
                     - `quantity`: `1` (number)
@@ -290,7 +296,7 @@
 - `price`: `100` (number)
 - `created_at`: `2018-01-01T00:00:00.000Z`
 - `image_url`: `https://fakeimg.pl/200x200`
-- `id`: `1` (number) - 項次
+- `id`: `7de7cdbb-14f0-408d-9d19-a202c0332405` (string)
 
 ## Order
 - `id`: `ccfcbb7c-63d0-4d0f-9020-c19e307e97dc`
