@@ -120,11 +120,11 @@
     - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
 
 - Request (application/json)
-    - Attributes (Product)
+    - Attributes (ProductCreate)
 
 - Response 200
     - Attributes (Success)
-        - `data`
+        - `data` (Product)
             - `id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
 - Response 400
     - Attributes (Failure)
@@ -142,6 +142,8 @@
 
 - Response 200
     - Attributes (Success)
+        - `data` (Product)
+                - `id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
 - Response 400
     - Attributes (Failure)
 
@@ -223,9 +225,9 @@
     - Attributes (Success)
         - `data` (array[Order], fixed)
 
-### 新增訂單 [POST]
+### 新增訂單 [PUT]
 
-送出時的 `quantity` 是調整。例如原本已經訂了 `5`，此時送出 `1`，則結果為 `6`
+送出時的 `quantity` 是相對值，這個會蓋掉原本的數量
 
 - Request (application/json)
     - Attributes
@@ -262,6 +264,12 @@
     - `recipient_name`: `王大名`
     - `recipient_address`: `台南市東區仁和路八段9號`
     - `recipient_phone`: `0987878787`
+
+## ProductCreate
+- `title`: `商品1`
+- `price`: `100` (number)
+- `created_at`: `2018-01-01T00:00:00.000Z`
+- `image_url`: `https://fakeimg.pl/200x200`
 
 ## Product
 - `title`: `商品1`
