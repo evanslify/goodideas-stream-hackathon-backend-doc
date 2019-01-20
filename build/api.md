@@ -11,6 +11,9 @@
 
 - Response 200
     - Attributes (Success)
+        - `data`
+            - `profile` (BuyerInfo)
+            - `active_stream_id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` (string, nullable) - 目前開的直播 ID，若無則 null
 
 # Group 買方資訊
 ## 買方資訊 [/profile]
@@ -80,7 +83,31 @@
 
 - Response 200
     - Attributes (Success)
-        - `data` (array[Product], fixed)
+        - `data` (array, fixed)
+            - (object)
+                - `quantity`: `1` (number) - 賣出數量
+                - `title`: `商品1`
+                - `price`: `100` (number)
+                - `created_at`: `2018-01-01T00:00:00.000Z`
+                - `image_url`: `https://fakeimg.pl/200x200`
+                - `id`: `1` (number) - 項次
+
+- Response 404
+    - Attributes (Failure)
+
+### 取得產品買家列表 [GET /stream/{stream-id}/product/{product-id}/buyers]
+
+- Parameters
+    - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
+    - `product-id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` - 商品 ID
+
+- Response 200
+    - Attributes (Success)
+        - `data` (array, fixed)
+            - (object)
+                - `buyer` (BuyerInfo)
+                - `quantity`: `1` (number)
+
 - Response 404
     - Attributes (Failure)
 
@@ -130,6 +157,52 @@
 - Response 404
     - Attributes (Failure)
 
+### 取得賣場商品所有買家資訊 [GET /stream/{stream-id}/order/{product-id}/summary]
+
+- Parameters
+    - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
+
+- Response 200 (application/json)
+    - Attributes (Success)
+        - `data` (array, fixed)
+            - (object)
+                - `id`: `ccfcbb7c-63d0-4d0f-9020-c19e307e97dc`
+                - `recipient_name`: `王大名`
+                - `recipient_address`: `台南市東區仁和路八段9號`
+                - `recipient_phone`: `0987878787`
+
+### 取得賣場所有買家資訊 [GET /stream/{stream-id}/order/summary]
+
+- Parameters
+    - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
+
+- Response 200 (application/json)
+    - Attributes (Success)
+        - `data` (array, fixed)
+            - (object)
+                - `id`: `ccfcbb7c-63d0-4d0f-9020-c19e307e97dc`
+                - `recipient_name`: `王大名`
+                - `recipient_address`: `台南市東區仁和路八段9號`
+                - `recipient_phone`: `0987878787`
+
+### 取得賣場某買家所有購買 [GET /stream/{stream-id}/order/by-user/{user-id}/summary]
+
+- Parameters
+    - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
+    - `user-id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` - 使用者 ID
+
+- Response 200 (application/json)
+    - Attributes (Success)
+        - `data`
+            - `id`: `ccfcbb7c-63d0-4d0f-9020-c19e307e97dc`
+            - `recipient_name`: `王大名`
+            - `recipient_address`: `台南市東區仁和路八段9號`
+            - `recipient_phone`: `0987878787`
+            - `item` (array, fixed)
+                - (object)
+                    - `quantity`: `1` (number)
+                    - `product_id`: `7de7cdbb-14f0-408d-9d19-a202c0332405`
+
 ### 訂單 [/stream/{stream-id}/order]
 
 - Parameters
@@ -162,8 +235,21 @@
     - Attributes
         - `quantity`: `1` (number) - 目前已買數量
 
+<!-- ### 取得訂單概要 [GET /stream/{stream&#45;id}/order] -->
+<!--  -->
+<!-- 只有賣場擁有人可以呼叫。 -->
+<!--  -->
+<!-- &#45; Parameters -->
+<!--     &#45; `stream&#45;id`: `f0185907&#45;9b22&#45;4f6b&#45;8593&#45;cf0837f80b45` &#45; 直播 ID -->
+<!--  -->
+<!-- &#45; Response 200 (application/json) -->
+<!--     &#45; Attributes (Success) -->
+<!--         &#45; `data` (array, fixed) -->
+<!--             &#45; `quantity`: `1` (number) -->
+<!--             &#45; `product_id`: `7de7cdbb&#45;14f0&#45;408d&#45;9d19&#45;a202c0332405` -->
+<!--  -->
 # Data Structure
-## Success 
+## Success
 - `success`: `true` (boolean)
 
 ## Failure
@@ -185,5 +271,5 @@
 - `id`: `ccfcbb7c-63d0-4d0f-9020-c19e307e97dc`
 - `quantity`: `100` (number)
 - `buyer` (BuyerInfo)
-    - `id`: `ccfcbb7c-63d0-4d0f-9020-c19e307e97dc`
 - `created_at`: `2018-01-01T00:00:00.000Z`
+
