@@ -98,6 +98,8 @@
 
 ### 取得產品買家列表 [GET /stream/{stream-id}/product/{product-id}/buyers]
 
+只有賣場擁有人可以呼叫。
+
 - Parameters
     - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
     - `product-id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` - 商品 ID
