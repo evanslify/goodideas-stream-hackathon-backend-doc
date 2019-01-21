@@ -265,9 +265,9 @@
     - `recipient_name`: `王大名`
     - `recipient_address`: `台南市東區仁和路八段9號`
     - `recipient_phone`: `0987878787`
+
 ## StreamInfo
 - `id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
-- `has_active_stream`: `true` (boolean) - 是否有直播
 - `url`: `http://example.com`
 - `name`: `直播 A`
 - `deep_link`: `https://goodideas-stream-challange.evsfy.com/deeplink?stream_id=%3Cuuid%3E&video_url=URLEncode(https://...)`
