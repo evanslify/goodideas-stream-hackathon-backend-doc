@@ -238,14 +238,13 @@
 
 - Response 200 (application/json)
     - Attributes (Success)
-        - `data` (array, fixed)
-            - (object)
-                - `quantity`: `1` (number) - 賣出數量
-                - `title`: `商品1`
-                - `price`: `100` (number)
-                - `created_at`: `2018-01-01T00:00:00.000Z`
-                - `image_url`: `https://fakeimg.pl/200x200`
-                - `id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` (string)
+        - `data`
+            - `quantity`: `1` (number) - 賣出數量
+            - `title`: `商品1`
+            - `price`: `100` (number)
+            - `created_at`: `2018-01-01T00:00:00.000Z`
+            - `image_url`: `https://fakeimg.pl/200x200`
+            - `id`: `a0185907-9b22-4f6b-8593-cf0837f80b45` (string)
 
 <!-- ### 取得訂單概要 [GET /stream/{stream&#45;id}/order] -->
 <!--  -->
