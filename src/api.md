@@ -40,21 +40,20 @@
 - Response 200 (application/json)
     - Attributes (Success)
         - `data` (array)
-            - (object)
-                - `id`: `f0185907-9b22-4f6b-8593-cf0837f80b45`
-                - `url`: `http://example.com`
-                - `name`: `直播 A`
-            - (object)
-                - `id`: `cf58e62c-3861-4082-97f3-07081012efa6`
-                - `url`: `http://example.com`
-                - `name`: `直播 B`
-            - (object)
-                - `id`: `df58e62c-3861-4082-97f3-07081012efa6`
-                - `url`: `http://example.com`
-                - `name`: `直播 C`
+            - (StreamInfo)
+            - (StreamInfo)
+            - (StreamInfo)
+
+## 取得直播賣場 [GET /stream/{stream-id}]
+
+- Parameters
+    - `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
+
+- Response 200 (application/json)
+    - Attributes (Success)
+        - `data` (StreamInfo)
 
 ## 新增直播賣場 [POST /stream]
-
 - Request (application/json)
     - Attributes
         - `url`: `http://example.com`
@@ -62,10 +61,7 @@
 
 - Response 200 (application/json)
     - Attributes (Success)
-        - `data`
-            - `id`: `f0185907-9b22-4f6b-8593-cf0837f80b45`
-            - `name`: `直播 A`
-            - `deep_link`: `https://goodideas-stream-challange.evsfy.com/deeplink?stream_id=%3Cuuid%3E&video_url=URLEncode(https://...)`
+        - `data` (StreamInfo)
 
 ## 關閉直播賣場 [POST /stream/{stream-id}/close]
 
@@ -194,6 +190,10 @@
             - `item` (array, fixed)
                 - (object)
                     - `quantity`: `1` (number)
+                    - `title`: `商品1`
+                    - `price`: `100` (number)
+                    - `created_at`: `2018-01-01T00:00:00.000Z`
+                    - `image_url`: `https://fakeimg.pl/200x200`
                     - `product_id`: `7de7cdbb-14f0-408d-9d19-a202c0332405`
 
 ### 訂單
@@ -262,6 +262,12 @@
     - `recipient_name`: `王大名`
     - `recipient_address`: `台南市東區仁和路八段9號`
     - `recipient_phone`: `0987878787`
+## StreamInfo
+- `stream-id`: `f0185907-9b22-4f6b-8593-cf0837f80b45` - 直播 ID
+- `has_active_stream`: `true` (boolean) - 是否有直播
+- `url`: `http://example.com`
+- `name`: `直播 A`
+- `deep_link`: `https://goodideas-stream-challange.evsfy.com/deeplink?stream_id=%3Cuuid%3E&video_url=URLEncode(https://...)`
 
 ## ProductCreate
 - `title`: `商品1`
