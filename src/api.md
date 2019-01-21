@@ -21,7 +21,10 @@
 ### 修改 [PUT]
 
 - Request (application/json)
-    - Attributes (BuyerInfo)
+    - Attributes
+        - `recipient_name`: `王大名`
+        - `recipient_address`: `台南市東區仁和路八段9號`
+        - `recipient_phone`: `0987878787`
 
 - Response 200
     - Attributes (Success)
